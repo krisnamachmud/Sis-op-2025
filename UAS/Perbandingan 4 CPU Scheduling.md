@@ -140,8 +140,41 @@
 3. **Round Robin: 7.2 ms**
 4. **Priority: 11.0 ms**
 
+## Penjelasan Singkat Algoritma
+
+### 1. FCFS (First Come First Served)
+**Konsep:** Proses dieksekusi berdasarkan urutan kedatangan (first in, first out).
+- **Kelebihan:** Sederhana, mudah diimplementasi, tidak ada starvation
+- **Kekurangan:** Convoy effect (proses pendek harus menunggu proses panjang)
+
+### 2. SJF (Shortest Job First)
+**Konsep:** Proses dengan burst time terpendek dieksekusi terlebih dahulu.
+- **Kelebihan:** Menghasilkan minimum average waiting time
+- **Kekurangan:** Starvation untuk proses panjang, perlu prediksi burst time
+
+### 3. Non-Preemptive Priority
+**Konsep:** Proses dengan prioritas tertinggi dieksekusi terlebih dahulu.
+- **Kelebihan:** Fleksibel berdasarkan importance proses
+- **Kekurangan:** Starvation untuk prioritas rendah, priority inversion
+
+### 4. Round Robin
+**Konsep:** Setiap proses mendapat time quantum yang sama secara bergiliran.
+- **Kelebihan:** Fair sharing, baik untuk time-sharing systems, no starvation
+- **Kekurangan:** Context switching overhead, performa bergantung quantum size
+
 ## Kesimpulan
 
-SJF (Shortest Job First) menghasilkan minimum average waiting time yaitu 4.6 ms.
+**Ranking berdasarkan Average Waiting Time:**
+1. **SJF: 4.6 ms** ⭐ (Optimal untuk minimizing waiting time)
+2. **FCFS: 6.2 ms** (Simple & predictable)
+3. **Round Robin: 7.2 ms** (Fair & responsive)
+4. **Priority: 11.0 ms** (Flexible tapi bisa inefficient)
 
-Hal ini terjadi karena SJF mengeksekusi job terpendek terlebih dahulu, sehingga mengurangi waktu tunggu total untuk semua proses. Ini sesuai dengan teorema bahwa SJF memberikan minimum average waiting time untuk set proses yang given.
+**Key Insights:**
+- **SJF** optimal secara teoritis untuk mengurangi waiting time
+- **Round Robin** terbaik untuk responsiveness dan fairness
+- **FCFS** paling sederhana tapi bisa inefficient dengan convoy effect
+- **Priority** memberikan kontrol tapi berisiko starvation
+
+**Pemilihan algoritma** bergantung pada tujuan sistem: minimizing waiting time (SJF), fairness (RR), atau importance-based execution (Priority).memberikan minimum average waiting time untuk set proses yang given.
+
